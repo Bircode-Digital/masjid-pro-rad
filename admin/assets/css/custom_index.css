@@ -1,0 +1,530 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+        --primary-color: #0C4B33;
+        --secondary-color: #1A936F;
+        --background-color: #F0F4F8;
+        --card-color: #FFFFFF;
+        --text-color: #333333;
+        --text-secondary: #666666;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        overflow-x: hidden;
+    }
+
+    .app-container {
+        max-width: 420px;
+        margin: 0 auto;
+        background-color: var(--background-color);
+        min-height: 100vh;
+        position: relative;
+        overflow-y: auto;
+        padding-bottom: 80px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .app-container::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+
+    .hero-section {
+        background: linear-gradient(rgba(12, 75, 51, 0.8), rgba(26, 147, 111, 0.8)), url('https://masjidpro.com/mosque-background.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        position: relative;
+    }
+
+    .hero-content {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-time {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        position: relative;
+    }
+
+    .hero-seconds {
+        font-size: 16px;
+        position: absolute;
+        right: -25px;
+        bottom: 0;
+    }
+
+    .hero-prayer {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .hero-location, .hero-date {
+        font-size: 14px;
+        font-weight: 400;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        margin-bottom: 5px;
+    }
+
+    .header {
+        background: transparent;
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .header-icons {
+        display: flex;
+        align-items: center;
+    }
+
+    .settings-icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        margin-left: 15px;
+    }
+
+	.search-icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        margin-left: 15px;
+    }
+
+    .search-icon:hover, .settings-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .search-container {
+        position: absolute;
+        top: 22px;
+        right: 50px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        width: 40px;
+        transition: width 0.3s ease;
+    }
+
+    .search-container.active {
+        width: 300px;
+		bottom: 15px;
+		right: 55px;
+		padding-left: 5px;
+    }
+
+    .search-input {
+        width: 250px;
+		right: 5px;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        font-size: 14px;
+        color: var(--text-color);
+        display: none;
+    }
+
+    .search-container.active .search-input {
+        display: block;
+    }
+
+    .search-input:focus {
+        outline: none;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    }
+
+    .prayer-times {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: var(--card-color);
+        border-radius: 20px;
+        margin: -40px 20px 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 10;
+    }
+
+    .prayer-time {
+        text-align: center;
+        flex: 1;
+    }
+
+    .prayer-name {
+        font-size: 12px;
+        color: var(--text-secondary);
+        margin-bottom: 5px;
+    }
+
+    .prayer-hour {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .feature-item {
+        text-align: center;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-icon:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .feature-name {
+        font-size: 12px;
+        color: var(--text-color);
+        font-weight: 500;
+    }
+
+    .banner-container {
+        margin: 20px 2px;
+        overflow: hidden;
+    }
+
+    .banner-scroll {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .banner-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .banner {
+        flex: 0 0 auto;
+        width: calc(100% - 30px);
+		height: 170px;
+        scroll-snap-align: start;
+        margin-right: 10px;
+        background: linear-gradient(rgba(12, 75, 51, 0.8), rgba(26, 147, 111, 0.8));
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .banner:last-child {
+        margin-right: 0;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        mix-blend-mode: overlay;
+    }
+
+    .stats {
+        background-color: var(--card-color);
+        padding: 20px;
+        margin: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .stats-text {
+        font-size: 16px;
+        color: var(--text-color);
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+
+    .stats-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .stats-button {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(12,75,51,0.3);
+    }
+
+    .stats-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(12,75,51,0.4);
+    }
+
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-around;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 15px 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .nav-item {
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .nav-item.active {
+        color: var(--primary-color);
+    }
+
+    .nav-icon {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-item:hover .nav-icon, .nav-item.active .nav-icon {
+        transform: translateY(-3px);
+    }
+
+    .recommendations {
+        padding: 20px;
+    }
+
+    .recommendation-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .recommendation-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-color);
+    }
+
+    .see-all {
+        font-size: 14px;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .recommendation-tabs {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        margin-bottom: 15px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .recommendation-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab {
+        padding: 8px 16px;
+        background-color: #E0E0E0;
+        border-radius: 20px;
+        font-size: 14px;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .tab.active {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .recommendation-card {
+        background-color: var(--card-color);
+        border-radius: 15px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .recommendation-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .recommendation-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        margin-right: 15px;
+        object-fit: cover;
+    }
+
+    .recommendation-info {
+        flex: 1;
+    }
+
+    .recommendation-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 5px;
+    }
+
+    .recommendation-description {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 10px;
+    }
+
+    .recommendation-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .recommendation-likes {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        color: var(--text-secondary);
+    }
+
+    .like-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+    }
+
+    .recommendation-time {
+        font-size: 12px;
+        color: var(--text-secondary);
+    }
+
+    #loginModal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px;
+        border-radius: 10px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .login-form input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .login-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .login-form button:hover {
+        background-color: var(--secondary-color);
+    }
